@@ -1,0 +1,28 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+<div class="container">
+    <h1>Registered users:</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Login</th>
+                <th scope="col">Password</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user.user_login}}</td>
+                <td>{{user.user_password}}</td>
+                <td>
+                    <a href="delete/{{user.user_login}}"><button id="delete">X</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

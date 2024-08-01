@@ -1,0 +1,50 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+<div class="container">
+    <h1>User registration:</h1>
+    <form class="mb-3 needs-validation" novalidate action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Login</label>
+            <input name="login" type="text" class="form-control" id="formGroupExampleInput" required>
+            <div class="invalid-feedback">
+                Please provide a login.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+            <div class="invalid-feedback">
+                Please provide a password.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script>
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+{% endblock %}
