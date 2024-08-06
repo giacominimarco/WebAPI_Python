@@ -27,10 +27,20 @@
                     <a class="nav-link" href="{% url 'users' %}">Users</a>
                 </div>
             </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
+                {% if user.is_authenticated %}
+                    <span class="nav-text">
+                        {{user.username}}
+                    </span>
+                    <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a class="btn btn-success" href="{% url 'register' %}">Registrar</a>
+                {% endif %} 
+            </div>
         </div>
     </nav>
 
-    <div class="container-sm">
+    <div class="container" style="width: 50vw; padding: 20px;">
         {% block content %}
 
         {% endblock %}
