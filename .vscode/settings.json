@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:WebAPI_Python}/database.db",
+            "name": "database"
+        }
+    ],
+    "python.analysis.typeCheckingMode": "basic"
+}
